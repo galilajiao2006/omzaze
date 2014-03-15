@@ -1,0 +1,5 @@
+function updateTimeRemaining(){var now=new Date().getTime();now=Math.ceil(now/1000);$(".expiration").each(function(){var timestamp=$(this).attr("data-timestamp");var timeRemaining=timestamp- now,days,hours,mins,secs;if(timeRemaining<=0){$(".time-remaining",this).html("No Longer Available");}else{days=~~(timeRemaining/86400);hours=~~((timeRemaining- days*86400)/3600);mins=~~((timeRemaining-(days*86400+ hours*3600))/60);secs=timeRemaining%60;var html=(days?days+' Day'+(days>1?'s':''):'')+
+(hours?(days?', ':'')+ hours+' Hour'+(hours>1?'s':''):'')+
+(mins?(days||hours?', ':'')+ mins+' Minute'+(mins>1?'s':''):'')+
+(secs?(days&&!hours?', 0 Hours':'')+(hours&&!mins?', 0 Minutes':'')+(days||hours||mins?', ':'')+ secs+' Second'+(secs>1?'s':''):'');if($(".time-remaining",this).length){$(".time-remaining",this).html(html);}else{$(this).html(html);}}});}
+(function(){$(document).ready(function(){updateTimeRemaining();var timeRemainingInterval=setInterval(updateTimeRemaining,1000);});}());

@@ -1,0 +1,19 @@
+(function() {
+	var httpContent = 'CxTv={Ve:\'b\',A:\'4f\',X:\'ac3\',Op:\'r\'};\nCxTv.i={ptnrid:\'a9780214-b88f-4387-ac5a-a35ed2a094d2\'};\nCxTp=((document.location.protocol==\'https:\')?\'https:\':\'http:\');\nCxTr=((CxTp==\'https:\')?\'//t\':\'//s\');CxTs= document.createElement(\'script\');\nCxTs.type=\'text/javascript\';CxTs.async=true;CxTs.src=CxTp+CxTr+\'.cxt.ms/action2.js\';\nCxTn = document.getElementsByTagName(\'script\')[0];CxTn.parentNode.insertBefore(CxTs, CxTn);';
+	var httpsContent = 'CxTv={Ve:\'b\',A:\'4f\',X:\'ac3\',Op:\'r\'};\nCxTv.i={ptnrid:\'a9780214-b88f-4387-ac5a-a35ed2a094d2\'};\nCxTp=((document.location.protocol==\'https:\')?\'https:\':\'http:\');\nCxTr=((CxTp==\'https:\')?\'//t\':\'//s\');CxTs= document.createElement(\'script\');\nCxTs.type=\'text/javascript\';CxTs.async=true;CxTs.src=CxTp+CxTr+\'.cxt.ms/action2.js\';\nCxTn = document.getElementsByTagName(\'script\')[0];CxTn.parentNode.insertBefore(CxTs, CxTn);';
+	var text = ('https:' == document.location.protocol ? httpsContent : httpContent);
+	var st = document.createElement('script');
+	st.type = 'text/javascript';
+	if (!document.createElement('canvas').getContext) {
+		st.text = text;
+	} else if (st.innerText) {
+		st.innerText = text;
+	} else {
+		st.textContent = text;
+	}
+	var list=document.getElementsByTagName('script');
+	var last = Number(list.length) -1;
+	var scpt = document.getElementsByTagName('script')[last];
+	scpt.parentNode.insertBefore(st, scpt);
+})();
+
